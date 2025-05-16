@@ -1,12 +1,13 @@
 import { createContext, useEffect, useReducer } from "react"
 import { onAuthStateChangedListener, createUserDocumentFromAuth } from "../utils/firebase/firebase.utils"
+import { createAction } from "../utils/reducer/reducer.utils"
 
 export const UserContext = createContext({
     setCurrentUser: () => null,
     currentUser: null
 })
 
-export const User_ACTION_TYPES = {
+export const USER_ACTION_TYPES = {
     'SET_CURRENT_USER': 'SET_CURRENT_USER'
 }
 
@@ -18,7 +19,7 @@ const userReducer = (state, action) => {
     const { type, payload } = action
 
     switch(type) {
-        case User_ACTION_TYPES.SET_CURRENT_USER:
+        case USER_ACTION_TYPES.SET_CURRENT_USER:
             return {
                 ...state,
                 currentUser: payload
@@ -31,10 +32,7 @@ const userReducer = (state, action) => {
 export const UserProvider = ({ children }) => {
     const [{ currentUser }, dispatch] = useReducer(userReducer, INITIAL_STATE)
     const setCurrentUser = user => {
-        dispatch( {
-            type: User_ACTION_TYPES.SET_CURRENT_USER,
-            currentUser: user
-        })
+        dispatch(createAction(USER_ACTION_TYPES.SET_CURRENT_USER, user))
     }
     useEffect( () => {
         const unsubscribe = onAuthStateChangedListener( user => {
