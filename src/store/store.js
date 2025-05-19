@@ -7,10 +7,7 @@ const loggerMiddleware = store => next => action => {
     if(action.type) {
         return next(action)
     }
-
     next(action)
-
-
 }
 
 const middleWares = [logger]
