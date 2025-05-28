@@ -14,6 +14,7 @@
     "@types/jest": "^29.5.14",
     "@types/node": "^22.15.21",
     "@types/redux-logger": "^3.0.13",
+    "@types/styled-components": "^5.1.34",
     "dotenv": "^16.5.0",
     "firebase": "^11.7.1",
     "react": "^19.1.0",
@@ -29,6 +30,7 @@
     "sass": "^1.87.0",
     "stripe": "^18.1.1",
     "styled-components": "^6.1.18",
+    "typed-redux-saga": "^1.5.0",
     "typescript": "^5.8.3"
   },
   "devDependencies": {
@@ -36,6 +38,7 @@
     "@types/react": "^19.1.5",
     "@types/react-dom": "^19.1.5",
     "@vitejs/plugin-react": "^4.4.1",
+    "babel-plugin-macros": "^3.1.0",
     "eslint": "^9.25.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
